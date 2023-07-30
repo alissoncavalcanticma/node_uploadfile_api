@@ -3,7 +3,12 @@ import { Api } from '../models/Api.Model';
 
 
 export const uploadFile = async (req: Request, res: Response) => {
-    res.json(req.file);
+    
+    //Tratando a chave do array, definindo um type Multer
+    const files = req.files as {[fieldname: string]: Express.Multer.File[]};
+    console.log("Avatar", files.avatar);
+
+    res.json(req.files);
 }
 
 
