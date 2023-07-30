@@ -1,8 +1,8 @@
 {
-  "name": "node_api_b7web",
+  "name": "node_uploadfile_api",
   "version": "1.0.0",
-  "description": "Exercício de construção de API de lista de tarefas com NodeJS da B7WEB",
-  "main": "index.js",
+  "description": "Exercício de construção de API upload de arquivos com NodeJS da B7WEB",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon -e ts,json src/server.ts"
