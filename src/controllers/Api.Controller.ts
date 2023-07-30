@@ -1,8 +1,16 @@
 import { Request, Response } from 'express';
-import { To_do } from '../models/To_do.Model';
+import { Api } from '../models/Api.Model';
+
+
+export const uploadFile = async (req: Request, res: Response) => {
+    res.json(req.file);
+}
+
+
+
 
 export const listTasks = async (req: Request, res: Response) => {
-    let tasks = await To_do.findAll();
+    let tasks = await Api.findAll();
     
     res.json({tasks});
 }
@@ -11,7 +19,7 @@ export const createTask = async (req: Request, res: Response) => {
     if(req.body.title){
         let {title, done} = req.body;
 
-        let newTask = await To_do.create({
+        let newTask = await Api.create({
             title: title,
             done: done ? true : false
         });
@@ -26,7 +34,7 @@ export const updateTask = async (req: Request, res: Response) => {
     if(req.params.id){
         let id = req.params.id;
 
-        let task = await To_do.findByPk(id);
+        let task = await Api.findByPk(id);
         if(task){
             task.title = req.body.title;
             task.done = req.body.done;
@@ -42,9 +50,9 @@ export const updateTask = async (req: Request, res: Response) => {
 export const deleteTask = async (req: Request, res: Response) => {
     if(req.params.id){
         let id = req.params.id;
-        let task = await To_do.findByPk(id);
+        let task = await Api.findByPk(id);
         if(task){
-            await To_do.destroy({
+            await Api.destroy({
                 where:{id}
             });
 

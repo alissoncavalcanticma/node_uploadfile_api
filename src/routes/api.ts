@@ -1,11 +1,18 @@
 import { Router } from "express";
-import * as To_do_Controller from '../controllers/To_do.Controller';
+import * as Api_Controller from '../controllers/Api.Controller';
+
+//import Multer
+import multer from "multer";
+
+const upload = multer({
+    dest: "./tmp"
+});
 
 const router = Router();
 
-router.get("/to_do", To_do_Controller.listTasks);
-router.post("/to_do", To_do_Controller.createTask);
-router.put("/to_do/:id", To_do_Controller.updateTask);
-router.delete("/to_do/:id", To_do_Controller.deleteTask);
+//Multer endpoints usando midleware
+router.post("/upload", upload.single('file'), Api_Controller.uploadFile);
+
+
 
 export default router;

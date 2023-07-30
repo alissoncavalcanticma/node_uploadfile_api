@@ -11,8 +11,10 @@
         {
           "name": "Main",
           "icon": "notebook-execute",
+          "autoExecuteCommands": true,
           "commands": [
-            ""
+            "cd src/",
+            "npm run start-dev"
           ]
         },
         {

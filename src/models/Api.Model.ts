@@ -8,7 +8,7 @@ export interface To_do_Instance extends Model{
     done: Boolean
 }
 
-export const To_do = sequelize.define<To_do_Instance>('To_do', {
+export const Api = sequelize.define<To_do_Instance>('Api', {
     id:{
         primaryKey: true,
         autoIncrement: true,
