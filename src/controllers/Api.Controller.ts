@@ -4,8 +4,14 @@ import { Api } from '../models/Api.Model';
 
 export const uploadFile = async (req: Request, res: Response) => {
     
+    //Definido type Multer para tratamento do upload
+    type UploadTypes = {
+        avatar: Express.Multer.File[],
+        files: Express.Multer.File[]
+    }
+
     //Tratando a chave do array, definindo um type Multer
-    const files = req.files as {[fieldname: string]: Express.Multer.File[]};
+    const files = req.files as UploadTypes;
     console.log("Avatar", files.avatar);
 
     res.json(req.files);
