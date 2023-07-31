@@ -22,7 +22,23 @@ const storageConfig = multer.diskStorage({
 const upload = multer({
     //dest: "./tmp" -> Basic Storage File
     //storage: multer.memoryStorage(); -> Save in memory
-    storage: storageConfig //Using custom config 
+    storage: storageConfig, //Using custom config 
+    //Filter/Conditions of receiver files
+    fileFilter: (req, file, cb) => {
+        //defining mimetypes accepted
+        const allowed: string[] = ['image/png'];
+        cb(null, allowed.includes(file.mimetype));
+        /*
+        if(allowed.includes(file.mimetype)){
+            cb(null, true);
+        }else{
+            cb(null, false);
+        }
+        */
+    },
+    limits: {
+        fileSize: 2000000
+    }
 });
 
 const router = Router();
