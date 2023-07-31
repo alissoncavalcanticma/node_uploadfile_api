@@ -11,10 +11,13 @@ export const uploadFile = async (req: Request, res: Response) => {
     }
 
     //Tratando a chave do array, definindo um type Multer
+    /*
     const files = req.files as UploadTypes;
     console.log("Avatar", files.avatar);
 
     res.json(req.files);
+    */
+    res.json(req.file);
 }
 
 
