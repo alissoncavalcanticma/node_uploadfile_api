@@ -1,8 +1,10 @@
-import express, {Request, Response} from "express";
+import express, {Request, Response, ErrorRequestHandler} from "express";
 import path from "path";
 import dotenv from "dotenv";
 import router from "./routes/api";
 import cors from 'cors';
+//import Objecterror do Multer
+import { MulterError } from "multer"; 
 
 // Instanciando o uso de variáveis de ambiente
 dotenv.config();
@@ -38,6 +40,18 @@ server.use((req: Request, res: Response) => {
         error: "Endpoint não encontrado."
     });
 })
+//Tratamento de errors
+const errorHandler: ErrorRequestHandler = (err, req, res, next) =>{
+    res.status(400);
+    if(err instanceof MulterError){
+        res.json({error: err.code});
+    }else{
+        console.log(err);
+        res.json({error: "Ocorreu um erro!"})
+    }
+}
+
+server.use(errorHandler);
 
 // Startando a escuta do server na porta definida
 server.listen(process.env.PORT);
