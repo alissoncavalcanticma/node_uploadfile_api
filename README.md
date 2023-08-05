@@ -70,6 +70,7 @@ $ npm run start-dev
 
 # The server will initialize in the <http://localhost:4000>
 ```
+For registry of this project, see the [REGISTRY](registry.md) file.
 
 ## :memo: License ##
 

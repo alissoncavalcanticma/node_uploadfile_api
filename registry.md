@@ -1,5 +1,4 @@
-# node_uploadfile_api
-Criação de API de upload e manipulação de arquivos de imagem com NodeJS da B7WEB
+# Registry of node_uploadfile_api project
 
 #### Obs: Copy node project base of node_to-do_api
 ## Multer library
