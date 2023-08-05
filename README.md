@@ -44,7 +44,7 @@ Criação de API de upload e manipulação de arquivos de imagem com NodeJS da B
 
 ## :rocket: Technologies ##
 
-The following tools were used in this project:
+The following technologies were used in this project:
 
 - [Node.js](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)

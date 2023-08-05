@@ -32,7 +32,7 @@ server.use(cors({
 //Permitindo acesso geral
     origin: '*',
 //Métodos liberados
-    methods: ['GET']
+    methods: ['GET', 'POST']
 
     
 }));

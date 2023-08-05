@@ -1,3 +1,9 @@
+#custom ignored files and folders
+
+tmp/
+public/
+
+
 # Logs
 logs
 *.log
@@ -101,7 +107,6 @@ dist
 .vuepress/dist
 
 # vuepress v2.x temp and cache directory
-tmp/
 .temp
 .cache
 
