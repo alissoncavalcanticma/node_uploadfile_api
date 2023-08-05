@@ -36,6 +36,9 @@ export const uploadFile = async (req: Request, res: Response) => {
                 })
                 .toFormat('jpeg')
                 .toFile(`./public/media/${req.file?.filename}.jpg`);
+                
+                //Deletando arquivo na pasta temporária
+                await unlink(req.file.path);
 
         res.json({image: `${req.file?.filename}.jpg`}).status(200);
     }else{
